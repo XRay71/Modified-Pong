@@ -1,0 +1,2 @@
+cd Assets
+RunMe.bat
