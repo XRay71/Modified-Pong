@@ -206,6 +206,12 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 								/ (rightPaddle.getMass() + ball.getMass()))
 						* 2);
 			hitPaddle.play();
+			rightPaddle.setDirection(0, 0);
+			leftPaddle.setDirection(0, 0);
+			rightPaddle.setHorizontalSpeed(0);
+			rightPaddle.setVerticalSpeed(0);
+			leftPaddle.setHorizontalSpeed(0);
+			leftPaddle.setVerticalSpeed(0);
 		}
 		if (ball.intersects(leftPaddle)) {
 			ball.setAngle(convertAngle(Math.PI - ball.getTrajectory()[0]));
@@ -217,6 +223,12 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 								/ (leftPaddle.getMass() + ball.getMass()))
 						* 2);
 			hitPaddle.play();
+			rightPaddle.setDirection(0, 0);
+			leftPaddle.setDirection(0, 0);
+			rightPaddle.setHorizontalSpeed(0);
+			rightPaddle.setVerticalSpeed(0);
+			leftPaddle.setHorizontalSpeed(0);
+			leftPaddle.setVerticalSpeed(0);
 		}
 
 		// ball & border collisions
@@ -385,8 +397,6 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 
 	// keyreleases get sent here
 	public void keyReleased(KeyEvent e) {
-		if (disable)
-			return;
 		Set<Character> temp = new HashSet<>(Arrays.asList(new Character[] { 'w', 'a', 's', 'd' }));
 		if (temp.contains(e.getKeyChar()))
 			leftPaddle.keyReleased(e);
